@@ -6,6 +6,7 @@ linters:
     - govet
     - staticcheck
     - errcheck
+    - zerologlint
 
 issues:
   exclude-use-default: false
