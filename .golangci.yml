@@ -1,0 +1,17 @@
+run:
+  timeout: 30s
+
+linters:
+  enable:
+    - govet
+    - staticcheck
+    - errcheck
+    - zerologlint
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0
+
+output:
+  sort-results: true
