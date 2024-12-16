@@ -19,7 +19,11 @@ func main() {
 
 	server.SetupMiddlewares(r)
 	server.SetupRouter(r)
-	r.Run(":" + envs["PORT"])
+	err := r.Run(":" + envs["PORT"])
+
+	if err != nil {
+		log.Fatal("Error running server", err)
+	}
 }
 
 func loadEnvs() map[string]string {

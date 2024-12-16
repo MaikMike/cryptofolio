@@ -8,3 +8,12 @@ install: ## Install dependencies
 	
 start-dev:
 	@go run main.go
+
+
+# go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+# ls $(go env GOPATH)/bin/golangci-lint
+# export PATH="$PATH:$(go env GOPATH)/bin"
+# source ~/.bashrc  # O ~/.zshrc
+lint:
+	@go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+	@golangci-lint run ./...
