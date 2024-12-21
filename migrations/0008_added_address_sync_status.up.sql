@@ -12,7 +12,7 @@ CREATE TABLE address_snapshots (
 
     CONSTRAINT fk_address_snapshots_portfolio_snapshot_id FOREIGN KEY (portfolio_snapshot_id) REFERENCES portfolio_snapshots(id) ON DELETE CASCADE
     CONSTRAINT fk_address_snapshots_address_id FOREIGN KEY (address_id) REFERENCES addresses(id) ON DELETE CASCADE
-    UNIQUE (portfolio_snapshot_id, address_id)
+    CONSTRAINT unique_address_snapshot_per_portfolio_snapshot_address_id UNIQUE (portfolio_snapshot_id, address_id)
 );
 
 
