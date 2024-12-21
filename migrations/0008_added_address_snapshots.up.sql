@@ -15,7 +15,6 @@ CREATE TABLE address_snapshots (
     CONSTRAINT unique_address_snapshot_per_portfolio_snapshot_address_id UNIQUE (portfolio_snapshot_id, address_id)
 );
 
-
 CREATE INDEX idx_address_snapshots_portfolio_id ON address_snapshots (portfolio_snapshot_id);
 CREATE INDEX idx_address_snapshots_status ON address_snapshots (status);
 CREATE INDEX idx_address_snapshots_address_id ON address_snapshots (address_id);
