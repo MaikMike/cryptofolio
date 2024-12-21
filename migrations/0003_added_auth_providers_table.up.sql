@@ -11,7 +11,9 @@ CREATE TABLE auth_providers (
     provider_id VARCHAR(255),
     password_hash VARCHAR(255),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-    CONSTRAINT unique_provider UNIQUE (provider, provider_id) 
+
+    CONSTRAINT auth_providers_unique_per_user UNIQUE (user_id),
+    CONSTRAINT auth_providers_unique_provider UNIQUE (provider, provider_id) 
 );
 
 -- Crear índices adicionales
