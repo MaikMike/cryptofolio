@@ -10,7 +10,6 @@ type ZerologLogger struct {
 	logger zerolog.Logger
 }
 
-// Nueva instancia de un ZerologLogger
 func NewZerologLogger() *ZerologLogger {
 	return &ZerologLogger{
 		logger: zerolog.New(os.Stderr).With().Timestamp().Logger(),
