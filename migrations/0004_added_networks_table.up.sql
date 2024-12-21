@@ -16,9 +16,9 @@ CREATE TABLE networks (
     thumbnail TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+
     CONSTRAINT unique_network_slug UNIQUE (name)
 );
 
--- Crear índices adicionales
 CREATE INDEX idx_networks_name ON networks (name);
 CREATE INDEX idx_networks_slug ON networks (slug);
