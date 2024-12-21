@@ -36,6 +36,7 @@ migrations_down: ## Apply all or N down migrations
 
 test_migrations:
 	$(MAKE) start_db
+	$(MAKE) sleep 5
 	$(MAKE) migrations_up
 	$(MAKE) migrations_down
 	$(MAKE) migrations_up
