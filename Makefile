@@ -34,8 +34,16 @@ migrations_down: ## Apply all or N down migrations
 	@migrate -database postgresql://root:root@localhost:5432/db?sslmode=disable \
 	-path migrations down $$(( $(migrations_count) / 2 ))
 
+test_migrations:
+	$(MAKE) start_db
+	$(MAKE) migrations_up
+	$(MAKE) migrations_down
+	$(MAKE) migrations_up
+	$(MAKE) migrations_down
+	$(MAKE) stop_db
+
 start_db: ## Start a postgres container
-	@docker compose -f ./docker/db.docker-compose.yml up -d 
+	@docker compose -f ./docker/db.docker-compose.yml up -d
 
 stop_db: ## Stop a postgres container
 	@docker compose -f ./docker/db.docker-compose.yml down

@@ -43,5 +43,4 @@ jobs:
         run: make start_db
 
       - name: Run migrations
-        working-directory: ./migrations
-        run: make up && make down && make up && make down
+        run: make test_migrations
