@@ -27,11 +27,11 @@ create_migrations: ## Install migrate CLI to work with sql migrations
 	@migrate create -ext sql -dir migrations -seq $(name)
 
 migrations_up: ## Apply all or N up migrations
-	@migrate -database postgresql://root:root@localhost:5432/db?sslmode=disable \
+	@migrate -database postgresql://root:root@localhost:5433/db?sslmode=disable \
 	-path migrations up $$(( $(migrations_count) / 2 ))
 
 migrations_down: ## Apply all or N down migrations
-	@migrate -database postgresql://root:root@localhost:5432/db?sslmode=disable \
+	@migrate -database postgresql://root:root@localhost:5433/db?sslmode=disable \
 	-path migrations down $$(( $(migrations_count) / 2 ))
 
 test_migrations:
