@@ -1,2 +1,2 @@
-CREATE TABLE snapshot_status;
-CREATE TYPE snapshot_status;
+DROP TABLE portfolio_snapshots;
+DROP TYPE snapshot_status;
