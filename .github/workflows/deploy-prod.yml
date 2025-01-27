@@ -1,0 +1,25 @@
+name: Deploy PROD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  run-migratioNs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.23.x
+
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Install Migrate CLI
+        run: |
+          go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
+
+      - name: Migrate
+        run: migrate -database '${{ secrets.DB_URL }}' -path migrations up
